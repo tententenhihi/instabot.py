@@ -578,8 +578,8 @@ class InstaBot:
                 self.this_tag_like_count += 1
                 if self.this_tag_like_count >= self.max_tag_like_count:
                     self.media_by_tag = [0]
-            # Del first media_id
-            del self.media_by_tag[0]
+                # Del first media_id
+                del self.media_by_tag[0]
 
     def new_auto_mod_follow(self):
         if time.time() > self.next_iteration["Follow"] and \
@@ -596,7 +596,8 @@ class InstaBot:
                     [self.media_by_tag[0]["owner"]["id"], time.time()])
                 self.next_iteration["Follow"] = time.time() + \
                                                 self.add_time(self.follow_delay)
-
+                # Del first media_id
+                del self.media_by_tag[0]                                                    
     def new_auto_mod_unfollow(self):
         if time.time() > self.next_iteration["Unfollow"] and \
                         self.unfollow_per_day != 0 and len(self.bot_follow_list) > 0:
